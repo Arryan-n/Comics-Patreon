@@ -1,6 +1,7 @@
 const payment = document.getElementById("payment-section");
 const paymentBtn = document.getElementById("payment-btn");
 const comics = document.getElementById("comics");
+const deleteBtn = document.getElementById("delete-btn");
 
 const itemArr = [];
 
@@ -45,6 +46,7 @@ function addItem(e) {
 function render() {
   if (itemArr.length === 0) {
     payment.innerHTML = "";
+    paymentBtn.style.display = "none";
     return;
   }
 
@@ -61,7 +63,7 @@ function render() {
     <div class="payment-item">
         <h3>${curr.name} <span>X ${curr.quantity}</span></h3>
         
-        <button class="delete-btn" onclick="handleDelete('${index}','${
+        <button id="delete-btn" class="delete-btn" onclick="handleDelete('${index}','${
       curr.quantity
     }')">
         🗑️
